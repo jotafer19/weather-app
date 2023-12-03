@@ -6,6 +6,34 @@
     <title>Document</title>
   </head>
   <body>
-    Hello world
+    <form action="#">
+      <input type="text" placeholder="Enter a location">
+      <button type="submit" id="search-location">Search</button>
+    </form>
+    <div class="container main-info">
+      <div>
+        <p id="location-name"></p>
+        <p id="current-temperature"><span id="number">9</span>°C</p>
+        <p id="current-condition">Cloudy</p>
+      </div>
+    </div>
+    <div class="container additional-info">
+      <div class="info">
+        <p>Feels like</p>
+        <p id="feels-like-info"></p>
+      </div>
+      <div class="info">
+        <p>Precipitations</p>
+        <p id="precipitations-info"></p>
+      </div>
+      <div class="info">
+        <p>Wind speed</p>
+        <p id="wind-speed-info"></p>
+      </div>
+      <div class="info">
+        <p>Humidity</p>
+        <p id="humidity-info"></p>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,34 +1,24 @@
-function HelloWorld({
-  greeting = "hello",
-  greeted = '"World"',
-  silent = false,
-  onMouseOver,
-}) {
-  if (!greeting) {
-    return null;
-  }
+import getTodayData from './API';
+import updateCurrentWeather from './DOM';
+import './style.css';
 
-  // TODO: Don't use random in render
-  let num = Math.floor(Math.random() * 1e7)
-    .toString()
-    .replace(/\.\d+/gi, "");
+const form = document.querySelector('form');
+const button = document.querySelector('button');
+const locationInput = document.querySelector('input');
 
-  return (
-    <div
-      className="HelloWorld"
-      title={`You are visitor number ${num}`}
-      onMouseOver={onMouseOver}
-    >
-      <strong>
-        {greeting.slice(0, 1).toUpperCase() + greeting.slice(1).toLowerCase()}
-      </strong>
-      {greeting.endsWith(",") ? (
-        " "
-      ) : (
-        <span style={{ color: "grey" }}>", "</span>
-      )}
-      <em>{greeted}</em>
-      {silent ? "." : "!"}
-    </div>
-  );
-}
+form.addEventListener('submit', event => {
+  event.preventDefault();
+})
+
+window.addEventListener('load', async () => {
+  const data = await getTodayData('madrid');
+  updateCurrentWeather(data);
+})
+
+button.addEventListener('click', async () => {
+  const location = locationInput.value;
+  if (location === "") return;
+  const data = await getTodayData(location);
+  updateCurrentWeather(data);
+  locationInput.value = "";
+})
