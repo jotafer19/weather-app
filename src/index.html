@@ -6,34 +6,60 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="#">
-      <input type="text" placeholder="Enter a location">
-      <button type="submit" id="search-location">Search</button>
-    </form>
-    <div class="container main-info">
-      <div>
-        <p id="location-name"></p>
-        <p id="current-temperature"><span id="number">9</span>°C</p>
-        <p id="current-condition">Cloudy</p>
+    <div id="header">
+      <div class="logo">myWeather</div>
+      <form action="#">
+        <input type="text" placeholder="Enter a location" id="search-bar">
+        <button type="submit" id="search-location"></button>
+      </form>
+    </div>
+    <div class="container today-info">
+      <div class="container main-info">
+        <div id="location">
+          <p id="city"></p>
+          <p id="country"></p>
+        </div>
+        <div class="main-weather">
+          <p id="current-temperature"><span id="number"></span>°C</p>
+          <img src="" id="current-condition-icon">
+          <p id="current-condition"></p>
+        </div>
       </div>
+      <div class="container hourly-info"></div>
     </div>
     <div class="container additional-info">
       <div class="info">
-        <p>Feels like</p>
+        <p>FEELS LIKE</p>
         <p id="feels-like-info"></p>
       </div>
       <div class="info">
-        <p>Precipitations</p>
+        <p>PRECIPITATIONS</p>
         <p id="precipitations-info"></p>
       </div>
       <div class="info">
-        <p>Wind speed</p>
+        <p>WIND SPEED</p>
         <p id="wind-speed-info"></p>
       </div>
       <div class="info">
-        <p>Humidity</p>
+        <p>HUMIDITY</p>
         <p id="humidity-info"></p>
       </div>
+    </div>
+    <div class="container forecast">
+      <div class="header">
+        <div id="forecast-day">DAY</div>
+        <div>CONDITION</div>
+        <div class="forecast temperature">
+          TEMPERATURE
+          <div class="min-max">
+            <div>MAX</div>
+            <div>MIN</div>
+          </div>
+        </div>
+        <div>CHANCE OF RAIN</div>
+        <div>HUMIDITY</div>
+      </div>
+      <div class="two-days-forecast"></div>
     </div>
   </body>
 </html>
