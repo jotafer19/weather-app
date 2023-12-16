@@ -1,4 +1,6 @@
 /* eslint-disable no-plusplus */
+import dateFormat from "dateformat";
+
 function processTodayData(data) {
     return {
       currentLocation: data.location.name,
@@ -6,10 +8,10 @@ function processTodayData(data) {
       currentTemperature: Math.round(data.current.temp_c),
       maxTemperature: data.forecast.forecastday[0].day.maxtemp_c,
       minTemperature: data.forecast.forecastday[0].day.mintemp_c,
-      currentFeelsTemperature: Math.round(data.current.feelslike_c),
+      currentFeelsTemperature: Math.round   (data.current.feelslike_c),
       currentCondition: data.current.condition.text,
       currentConditionIcon: data.current.condition.icon,
-      currentWindSpeed: data.current.wind_kph,
+      currentWindSpeed: Math.round(data.current.wind_kph),
       currentPrecipitation: data.current.precip_mm,
       currentHumidity: data.current.humidity,
     }
@@ -74,11 +76,15 @@ function getTwoDaysForecast(data) {
     return twoDaysForecast;
 }
 
-
+function getDate() {
+    const now = new Date();
+    return dateFormat(now, 'dddd, mmmm dS, yyyy, hh:MM')
+}
 
 export {
     processTodayData,
     displayDayData,
     getData,
-    getTwoDaysForecast
+    getTwoDaysForecast,
+    getDate
 }

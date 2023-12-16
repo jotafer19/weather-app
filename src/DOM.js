@@ -16,11 +16,70 @@ function updateCurrentWeather(data) {
     currentConditionIcon.src = data.currentConditionIcon;
     currentCondition.textContent = data.currentCondition;
 
-    feelsLike.textContent = `${data.currentFeelsTemperature  }°C`;
+    feelsLike.textContent = `${data.currentFeelsTemperature  }°`;
     windSpeed.textContent = `${data.currentWindSpeed  } km/h`;
     precipitations.textContent = `${data.currentPrecipitation  } mm`;
     humidity.textContent = `${data.currentHumidity  }%`;
 }
+
+
+function createWeatherSet(row) {
+    const container = document.createElement('div');
+    container.classList.add('weather-per-hour');
+    const hourDisplay = document.createElement('div');
+    const conditionDisplay = new Image();
+    const temperatureDisplay = document.createElement('div');
+    
+    let hour = new Date(row.time).getHours();
+    if (hour.toString().length === 1) hour = `0${hour}`;
+    hourDisplay.textContent = `${hour}:00`;
+    conditionDisplay.src = row.conditionIcon;
+    temperatureDisplay.textContent = `${row.temperature  }°`;
+
+    container.append(hourDisplay, conditionDisplay, temperatureDisplay);
+    return container;
+}
+
+function showHourlyData(data) {
+    const firstContainer = document.querySelector('[data-info-one]');
+    const secondContainer = document.querySelector('[data-info-two]');
+    const thirdContainer = document.querySelector('[data-info-three]');
+
+
+    firstContainer.replaceChildren();
+    secondContainer.replaceChildren();
+    thirdContainer.replaceChildren();
+
+    const firstRow = data.slice(0, 8);
+    const secondRow = data.slice(8, 16);
+    const thirdRow = data.slice(16, 24);
+
+    firstRow.forEach(row => {
+        firstContainer.appendChild(createWeatherSet(row))
+    })
+
+    secondRow.forEach(row => {
+        secondContainer.appendChild(createWeatherSet(row))
+    })
+
+    thirdRow.forEach(row => {
+        thirdContainer.appendChild(createWeatherSet(row))
+    })
+}
+
+function resetHourlyData() {
+    const activeContainer = document.querySelector('.hourly-data.active');
+    const activeDot = document.querySelector('.dot.active');
+    const container = document.querySelector('.show-hourly');
+    const dotsContainer = document.querySelector('.dots-container');
+
+    activeContainer.classList.toggle('active');
+    activeDot.classList.toggle('active');
+
+    [...container.children][0].classList.toggle('active');
+    [...dotsContainer.children][0].classList.toggle('active');
+}
+
 
 function showHourlyWeather(data) {
     const mainContainer = document.querySelector('.hourly-info');
@@ -34,7 +93,7 @@ function showHourlyWeather(data) {
     if (hour.toString().length === 1) hour = `0${hour}`;
     hourDisplay.textContent = `${hour}:00`;
     conditionDisplay.src = data.conditionIcon;
-    temperatureDisplay.textContent = `${data.temperature  }°C`;
+    temperatureDisplay.textContent = `${data.temperature  }°`;
 
     container.append(hourDisplay, conditionDisplay, temperatureDisplay);
     mainContainer.appendChild(container);
@@ -54,7 +113,7 @@ function checkContainerForecast() {
 }
 
 function showTwoDaysForecast(data) {
-    const daysNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const daysNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const containerForecast = document.querySelector('.two-days-forecast');
     const container = document.createElement('div');
     container.classList.add('daily-forecast');
@@ -68,16 +127,20 @@ function showTwoDaysForecast(data) {
     const chanceOfRain = document.createElement('div');
     const humidity = document.createElement('div');
 
-    weekday.textContent = daysNames[new Date(data.time).getDay() - 1];
+    weekday.textContent = daysNames[new Date(data.time).getDay()];
     condition.src = data.conditionIcon;
-    maxTemp.textContent = `${Math.round(data.maxTemp)}°C`;
-    minTemp.textContent = `${Math.round(data.minTemp)}°C`
+    maxTemp.textContent = `${Math.round(data.maxTemp)}°`;
+    minTemp.textContent = `${Math.round(data.minTemp)}°`
     chanceOfRain.textContent = `${data.rainChance}%`;
-    humidity.textContent = data.humidity;
+    humidity.textContent = data.humidity + '%';
 
     temperature.append(maxTemp, minTemp);
     container.append(weekday, condition, temperature, chanceOfRain, humidity);
     containerForecast.appendChild(container);
+}
+
+function showDate(date) {
+    document.querySelector('#date').textContent = date;
 }
 
 export {
@@ -85,5 +148,8 @@ export {
     showHourlyWeather,
     resetHourlyWeather,
     checkContainerForecast,
-    showTwoDaysForecast
+    showHourlyData,
+    showTwoDaysForecast,
+    resetHourlyData,
+    showDate
 }

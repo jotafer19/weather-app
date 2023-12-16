@@ -85,6 +85,7 @@ form {
 .main-weather {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -97,14 +98,55 @@ form {
     width: 30%;
 }
 
-.hourly-info {
-    height: 100%;
-    width: 1000px;
-    overflow: scroll;
-    border-top: 1px solid #BBB;
-    border-bottom: 1px solid #BBB;
+.dots-container {
     display: flex;
-    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hourly-info {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hourly-info > div:first-child {
+    align-self: flex-start;
+    display: flex;
+    gap: .5rem;
+}
+
+.move-weather {
+    font-size: 1.5rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #999;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+.hourly-data {
+    width: 1000px;
+    display: none;
+}
+
+.hourly-data.active {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
 }
 
 .weather-per-hour {
