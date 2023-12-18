@@ -12,6 +12,10 @@
         <input type="text" placeholder="Enter a location" id="search-bar">
         <button type="submit" id="search-location"></button>
       </form>
+      <div class="temperature-units-container">
+        <button class="temperature-units active" value="celsius">Celsius</button>
+        <button class="temperature-units" value="fahrenheit">Fahrenheit</button>
+      </div>
     </div>
     <div class="container today-info">
       <div class="container main-info">
@@ -21,7 +25,7 @@
           <p id="date"></p>
         </div>
         <div class="main-weather">
-          <p id="current-temperature"><span id="number"></span>°</p>
+          <p id="current-temperature"><span class="number"></span><span class="unit">°</span></p>
           <img src="" id="current-condition-icon">
           <p id="current-condition"></p>
         </div>
@@ -46,7 +50,7 @@
     <div class="container additional-info">
       <div class="info">
         <p>FEELS LIKE</p>
-        <p id="feels-like-info"></p>
+        <p><span class="number"></span><span class="unit"></span></p>
       </div>
       <div class="info">
         <p>PRECIPITATIONS</p>

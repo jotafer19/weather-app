@@ -13,7 +13,7 @@
   "rules": {
     "import/no-extraneous-dependencies": ["error", { 
       "devDependencies": true,
-      "projectDependencies": false, }]
+      "projectDependencies": false }]
   }
   }
 }

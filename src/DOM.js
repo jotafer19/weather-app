@@ -1,11 +1,12 @@
 function updateCurrentWeather(data) {
     const location = document.querySelector('#city');
     const country = document.querySelector('#country');
-    const currentTemperature = document.querySelector('#current-temperature span');
+    const currentTemperature = document.querySelector('#current-temperature .number');
     const currentConditionIcon = document.querySelector('#current-condition-icon');
     const currentCondition = document.querySelector('#current-condition');
 
-    const feelsLike = document.querySelector('#feels-like-info')
+    const feelsLike = document.querySelector('.info .number')
+    const feelsLikeUnit = document.querySelector('.info .unit');
     const windSpeed = document.querySelector('#wind-speed-info')
     const precipitations = document.querySelector('#precipitations-info')
     const humidity = document.querySelector('#humidity-info')
@@ -16,12 +17,20 @@ function updateCurrentWeather(data) {
     currentConditionIcon.src = data.currentConditionIcon;
     currentCondition.textContent = data.currentCondition;
 
-    feelsLike.textContent = `${data.currentFeelsTemperature  }°`;
+    feelsLike.textContent = data.currentFeelsTemperature;
+    feelsLikeUnit.textContent = '°C';
     windSpeed.textContent = `${data.currentWindSpeed  } km/h`;
     precipitations.textContent = `${data.currentPrecipitation  } mm`;
     humidity.textContent = `${data.currentHumidity  }%`;
-}
 
+    const tempUnits = document.querySelector('.temperature-units.active');
+
+    if (tempUnits.value=== 'fahrenheit') {
+        currentTemperature.textContent = Math.round(Number(data.currentTemperature) * 9 / 5 + 32);
+        feelsLike.textContent = Math.round(Number(data.currentFeelsTemperature) * 9 / 5 + 32)
+        feelsLikeUnit.textContent = '°F ';
+    }
+}
 
 function createWeatherSet(row) {
     const container = document.createElement('div');
@@ -29,12 +38,26 @@ function createWeatherSet(row) {
     const hourDisplay = document.createElement('div');
     const conditionDisplay = new Image();
     const temperatureDisplay = document.createElement('div');
+    const number = document.createElement('span');
+    number.classList.add('number')
+    const unit = document.createElement('span');
+    unit.classList.add('unit')
+
+    temperatureDisplay.append(number, unit)
     
     let hour = new Date(row.time).getHours();
     if (hour.toString().length === 1) hour = `0${hour}`;
     hourDisplay.textContent = `${hour}:00`;
     conditionDisplay.src = row.conditionIcon;
-    temperatureDisplay.textContent = `${row.temperature  }°`;
+    number.textContent = row.temperature;
+    unit.textContent = '°C';
+
+    const tempUnits = document.querySelector('.temperature-units.active');
+
+    if (tempUnits.value === 'fahrenheit') {
+        number.textContent = Math.round(Number(row.temperature) * 9 / 5 + 32);
+        unit.textContent = '°F ';
+    }
 
     container.append(hourDisplay, conditionDisplay, temperatureDisplay);
     return container;
@@ -44,7 +67,6 @@ function showHourlyData(data) {
     const firstContainer = document.querySelector('[data-info-one]');
     const secondContainer = document.querySelector('[data-info-two]');
     const thirdContainer = document.querySelector('[data-info-three]');
-
 
     firstContainer.replaceChildren();
     secondContainer.replaceChildren();
@@ -123,16 +145,40 @@ function showTwoDaysForecast(data) {
     const temperature = document.createElement('div');
     temperature.classList.add('daily-forecast-temperature');
     const maxTemp = document.createElement('div');
+    maxTemp.classList.add('forecast-max-temp')
+    const maxTempNumber = document.createElement('span');
+    maxTempNumber.classList.add('number');
+    const maxTempUnit = document.createElement('span')
+    maxTempUnit.classList.add('unit')
     const minTemp = document.createElement('div');
+    minTemp.classList.add('forecast-min-temp')
+    const minTempNumber = document.createElement('span');
+    minTempNumber.classList.add('number');
+    const minTempUnit = document.createElement('span')
+    minTempUnit.classList.add('unit')
     const chanceOfRain = document.createElement('div');
     const humidity = document.createElement('div');
 
+    maxTemp.append(maxTempNumber, maxTempUnit);
+    minTemp.append(minTempNumber, minTempUnit)
+
     weekday.textContent = daysNames[new Date(data.time).getDay()];
     condition.src = data.conditionIcon;
-    maxTemp.textContent = `${Math.round(data.maxTemp)}°`;
-    minTemp.textContent = `${Math.round(data.minTemp)}°`
+    maxTempNumber.textContent = `${Math.round(data.maxTemp)}`;
+    maxTempUnit.textContent = '°C';
+    minTempNumber.textContent = `${Math.round(data.minTemp)}`
+    minTempUnit.textContent = '°C';
     chanceOfRain.textContent = `${data.rainChance}%`;
-    humidity.textContent = data.humidity + '%';
+    humidity.textContent = `${data.humidity  }%`;
+
+    const tempUnits = document.querySelector('.temperature-units.active');
+
+    if (tempUnits.value=== 'fahrenheit') {
+        maxTempNumber.textContent = Math.round(Number(data.maxTemp) * 9 / 5 + 32);
+        minTempNumber.textContent = Math.round(Number(data.minTemp) * 9 / 5 + 32);
+        maxTempUnit.textContent = '°F';
+        minTempUnit.textContent = '°F'
+    }
 
     temperature.append(maxTemp, minTemp);
     container.append(weekday, condition, temperature, chanceOfRain, humidity);

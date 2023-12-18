@@ -52,7 +52,6 @@ async function getData(location) {
         const response = await fetch(url, {mode: 'cors'});
         if (!response.ok) throw new Error ('Location not found');
         const data = await response.json();
-        console.log(data)
         return data;
     } catch(error) {
         return null;
@@ -78,7 +77,7 @@ function getTwoDaysForecast(data) {
 
 function getDate() {
     const now = new Date();
-    return dateFormat(now, 'dddd, mmmm dS, yyyy, hh:MM')
+    return dateFormat(now, 'dddd, mmmm dS, yyyy, HH:MM')
 }
 
 export {
@@ -86,5 +85,5 @@ export {
     displayDayData,
     getData,
     getTwoDaysForecast,
-    getDate
+    getDate,
 }

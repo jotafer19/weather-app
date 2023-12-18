@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import * as APIFunc from './API';
 import * as DOMFunc from './DOM';
 import './style.css';
@@ -16,7 +17,6 @@ window.addEventListener('load', async () => {
   const processedData = APIFunc.processTodayData(data)
   DOMFunc.updateCurrentWeather(processedData);
   const hourlyData = APIFunc.displayDayData(data);
-  console.log(hourlyData)
   DOMFunc.showHourlyData(hourlyData)
   const twoDaysForecast = APIFunc.getTwoDaysForecast(data);
   twoDaysForecast.forEach(day => {
@@ -36,7 +36,6 @@ button.addEventListener('click', async () => {
   const processedData = APIFunc.processTodayData(data)
   DOMFunc.updateCurrentWeather(processedData);
   const hourlyData = APIFunc.displayDayData(data);
-  console.log(hourlyData)
   DOMFunc.showHourlyData(hourlyData)
   const twoDaysForecast = APIFunc.getTwoDaysForecast(data);
   twoDaysForecast.forEach(day => {
@@ -80,5 +79,29 @@ dots.forEach(dot => {
     currentActiveDot.classList.toggle('active');
     [...container.children][newIndex].classList.toggle('active');
     [...dotsContainer.children][newIndex].classList.toggle('active');
+  })
+})
+
+const temperatureUnitsButtons = document.querySelectorAll('.temperature-units');
+
+temperatureUnitsButtons.forEach(changeUnit => {
+  changeUnit.addEventListener('click', (event) => {
+    if (event.target.classList.contains('active')) return;
+    const currentActive = document.querySelector('.temperature-units.active')
+    const allValues = document.querySelectorAll('.number');
+    allValues.forEach(value => {
+      if (event.target.value === 'fahrenheit') {
+        const newValue = Math.round((Number(value.textContent) * 9 / 5) + 32);
+        value.textContent = newValue;
+        value.nextElementSibling.textContent = '°F'
+      } else {
+        const newValue = Math.round((Number(value.textContent) - 32) * 5 / 9);
+        value.textContent = newValue;
+        value.nextElementSibling.textContent = '°C'
+      }
+    })
+    currentActive.classList.toggle('active');
+    event.target.classList.toggle('active');
+    console.log(currentActive)
   })
 })
