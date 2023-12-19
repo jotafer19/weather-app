@@ -8,7 +8,7 @@ function processTodayData(data) {
       currentTemperature: Math.round(data.current.temp_c),
       maxTemperature: data.forecast.forecastday[0].day.maxtemp_c,
       minTemperature: data.forecast.forecastday[0].day.mintemp_c,
-      currentFeelsTemperature: Math.round   (data.current.feelslike_c),
+      currentFeelsTemperature: Math.round(data.current.feelslike_c),
       currentCondition: data.current.condition.text,
       currentConditionIcon: data.current.condition.icon,
       currentWindSpeed: Math.round(data.current.wind_kph),
@@ -52,6 +52,7 @@ async function getData(location) {
         const response = await fetch(url, {mode: 'cors'});
         if (!response.ok) throw new Error ('Location not found');
         const data = await response.json();
+        console.log(data)
         return data;
     } catch(error) {
         return null;

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
     <div id="header">
@@ -17,6 +18,11 @@
         <button class="temperature-units" value="fahrenheit">Fahrenheit</button>
       </div>
     </div>
+    <div id="loading">
+      <div class="loader"></div>
+      <p>Loading...</p>
+  </div>
+  <div id="content">
     <div class="container today-info">
       <div class="container main-info">
         <div id="location">
@@ -25,9 +31,9 @@
           <p id="date"></p>
         </div>
         <div class="main-weather">
-          <p id="current-temperature"><span class="number"></span><span class="unit">°</span></p>
+          <div id="current-temperature"><span class="number"></span><span class="unit">°</span></div>
           <img src="" id="current-condition-icon">
-          <p id="current-condition"></p>
+          <div id="current-condition"></div>
         </div>
       </div>
       <div class="container hourly-info">
@@ -81,5 +87,6 @@
       </div>
       <div class="two-days-forecast"></div>
     </div>
+  </div>
   </body>
 </html>

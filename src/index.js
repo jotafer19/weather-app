@@ -11,8 +11,23 @@ form.addEventListener('submit', event => {
   event.preventDefault();
 })
 
-window.addEventListener('load', async () => {
-  const data = await APIFunc.getData('madrid');
+const loading = document.querySelector('#loading')
+const content = document.querySelector('#content')
+
+function showLoading() {
+  loading.style.display = 'block';
+  content.style.display = 'none'
+}
+
+function hideLoading() {
+  loading.style.display = 'none';
+  content.style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  showLoading();
+  const data = await APIFunc.getData('madrid')
+  if (!data) return;
   DOMFunc.showDate(APIFunc.getDate())
   const processedData = APIFunc.processTodayData(data)
   DOMFunc.updateCurrentWeather(processedData);
@@ -22,9 +37,11 @@ window.addEventListener('load', async () => {
   twoDaysForecast.forEach(day => {
     DOMFunc.showTwoDaysForecast(day)
   })
+  hideLoading()
 })
 
 button.addEventListener('click', async () => {
+  showLoading();
   const location = locationInput.value;
   if (!location) return;
   const data = await APIFunc.getData(location);
@@ -42,6 +59,7 @@ button.addEventListener('click', async () => {
     DOMFunc.showTwoDaysForecast(day);
   })
   form.reset();
+  hideLoading()
 })
 
 const buttons = document.querySelectorAll('.move-weather');
