@@ -10,10 +10,14 @@
     "ecmaFeatures": {
       "jsx": true
     },
-  "rules": {
-    "import/no-extraneous-dependencies": ["error", { 
-      "devDependencies": true,
-      "projectDependencies": false }]
-  }
+    "rules": {
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true,
+          "projectDependencies": false
+        }
+      ]
+    }
   }
 }
