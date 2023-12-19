@@ -1,2 +1,617 @@
-(()=>{"use strict";var n={426:(n,e,t)=>{t.d(e,{Z:()=>l});var r=t(537),o=t.n(r),i=t(645),a=t.n(i),c=t(667),A=t.n(c),s=new URL(t(605),t.b),d=a()(o()),u=A()(s);d.push([n.id,`* {\n    box-sizing: border-box;\n}\n\nbody {\n    margin: 0;\n}\n\n/* ------- HEADER ------- */\n\n#header {\n    height: 10svh;\n    background-color: #222;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 2rem;\n}\n\n.logo {\n    font-size: 2.5rem;\n    font-style: italic;\n    font-weight: bold;\n    color: white;\n}\n\n#search-icon {\n    background: url(${u});\n}\n\n/* ------- CURRENT WEATHER ------- */\n\n.today-info {\n    height: 60svh;\n    padding: 2rem;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.main-info {\n    min-width: 300px;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n\n#location {\n    width: 100%;\n    line-height: .5rem;\n}\n\n#city {\n    font-size: 1.8rem;\n    font-weight: bold;\n}\n\n#country,\n#current-condition {\n    font-size: 1.3rem;\n}\n\n.main-weather {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n\n#current-temperature {\n    font-size: 3.5rem;\n    line-height: 0;\n}\n\n#current-condition-icon {\n    width: 30%;\n}\n\n.hourly-info {\n    height: 100%;\n    width: 1000px;\n    overflow: scroll;\n    border-top: 1px solid #BBB;\n    border-bottom: 1px solid #BBB;\n    display: flex;\n    gap: 5rem;\n}\n\n.weather-per-hour {\n    display: grid;\n    grid-template-rows: repeat(3, 1fr);\n    justify-items: center;\n    align-items: center;\n}\n\n/* ------- ADDITIONAL INFORMATION ------- */\n\n.additional-info {\n    height: 30svh;\n    background-color: #777;\n    padding: 1rem;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n    gap: 1rem;\n}\n\n.info {\n    text-align: center;\n}\n\n.info > p {\n    color: #E8E8E8;\n    font-size: 1rem;\n}\n\n\n\n/* ------- FORECAST ------- */\n\n.forecast {\n    padding: 2rem;\n    display: grid;\n    grid-template-rows: repeat(3, min-content);\n}\n\n.forecast .header,\n.daily-forecast {\n    display: grid;\n    grid-template-columns: repeat(5, 1fr);\n    justify-items: center;\n    align-items: center;\n}\n\n.forecast .header {\n    align-items: end;\n    border-bottom: 1px solid #bdbdbd;\n}\n\n#forecast-day,\n.weekday {\n    justify-self: start;\n}\n\n.forecast .temperature {\n    width: 100%;\n    text-align: center;\n}\n\n.min-max {\n    width: 100%;\n    display: flex;\n    justify-content: space-evenly;\n}\n\n.daily-forecast-temperature {\n    width: 100%;\n    display: flex;\n    justify-content: space-evenly;\n    align-items: center;\n}`,"",{version:3,sources:["webpack://./src/style.css"],names:[],mappings:"AAAA;IACI,sBAAsB;AAC1B;;AAEA;IACI,SAAS;AACb;;AAEA,2BAA2B;;AAE3B;IACI,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,8BAA8B;IAC9B,mBAAmB;IACnB,aAAa;AACjB;;AAEA;IACI,iBAAiB;IACjB,kBAAkB;IAClB,iBAAiB;IACjB,YAAY;AAChB;;AAEA;IACI,mDAAoC;AACxC;;AAEA,oCAAoC;;AAEpC;IACI,aAAa;IACb,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,YAAY;IACZ,aAAa;IACb,sBAAsB;IACtB,8BAA8B;AAClC;;AAEA;IACI,WAAW;IACX,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;IACjB,iBAAiB;AACrB;;AAEA;;IAEI,iBAAiB;AACrB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,mBAAmB;AACvB;;AAEA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,gBAAgB;IAChB,0BAA0B;IAC1B,6BAA6B;IAC7B,aAAa;IACb,SAAS;AACb;;AAEA;IACI,aAAa;IACb,kCAAkC;IAClC,qBAAqB;IACrB,mBAAmB;AACvB;;AAEA,2CAA2C;;AAE3C;IACI,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,aAAa;IACb,6BAA6B;IAC7B,mBAAmB;IACnB,SAAS;AACb;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,cAAc;IACd,eAAe;AACnB;;;;AAIA,6BAA6B;;AAE7B;IACI,aAAa;IACb,aAAa;IACb,0CAA0C;AAC9C;;AAEA;;IAEI,aAAa;IACb,qCAAqC;IACrC,qBAAqB;IACrB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,gCAAgC;AACpC;;AAEA;;IAEI,mBAAmB;AACvB;;AAEA;IACI,WAAW;IACX,kBAAkB;AACtB;;AAEA;IACI,WAAW;IACX,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,WAAW;IACX,aAAa;IACb,6BAA6B;IAC7B,mBAAmB;AACvB",sourcesContent:["* {\n    box-sizing: border-box;\n}\n\nbody {\n    margin: 0;\n}\n\n/* ------- HEADER ------- */\n\n#header {\n    height: 10svh;\n    background-color: #222;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 2rem;\n}\n\n.logo {\n    font-size: 2.5rem;\n    font-style: italic;\n    font-weight: bold;\n    color: white;\n}\n\n#search-icon {\n    background: url('./search_icon.svg');\n}\n\n/* ------- CURRENT WEATHER ------- */\n\n.today-info {\n    height: 60svh;\n    padding: 2rem;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.main-info {\n    min-width: 300px;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n\n#location {\n    width: 100%;\n    line-height: .5rem;\n}\n\n#city {\n    font-size: 1.8rem;\n    font-weight: bold;\n}\n\n#country,\n#current-condition {\n    font-size: 1.3rem;\n}\n\n.main-weather {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n\n#current-temperature {\n    font-size: 3.5rem;\n    line-height: 0;\n}\n\n#current-condition-icon {\n    width: 30%;\n}\n\n.hourly-info {\n    height: 100%;\n    width: 1000px;\n    overflow: scroll;\n    border-top: 1px solid #BBB;\n    border-bottom: 1px solid #BBB;\n    display: flex;\n    gap: 5rem;\n}\n\n.weather-per-hour {\n    display: grid;\n    grid-template-rows: repeat(3, 1fr);\n    justify-items: center;\n    align-items: center;\n}\n\n/* ------- ADDITIONAL INFORMATION ------- */\n\n.additional-info {\n    height: 30svh;\n    background-color: #777;\n    padding: 1rem;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n    gap: 1rem;\n}\n\n.info {\n    text-align: center;\n}\n\n.info > p {\n    color: #E8E8E8;\n    font-size: 1rem;\n}\n\n\n\n/* ------- FORECAST ------- */\n\n.forecast {\n    padding: 2rem;\n    display: grid;\n    grid-template-rows: repeat(3, min-content);\n}\n\n.forecast .header,\n.daily-forecast {\n    display: grid;\n    grid-template-columns: repeat(5, 1fr);\n    justify-items: center;\n    align-items: center;\n}\n\n.forecast .header {\n    align-items: end;\n    border-bottom: 1px solid #bdbdbd;\n}\n\n#forecast-day,\n.weekday {\n    justify-self: start;\n}\n\n.forecast .temperature {\n    width: 100%;\n    text-align: center;\n}\n\n.min-max {\n    width: 100%;\n    display: flex;\n    justify-content: space-evenly;\n}\n\n.daily-forecast-temperature {\n    width: 100%;\n    display: flex;\n    justify-content: space-evenly;\n    align-items: center;\n}"],sourceRoot:""}]);const l=d},645:n=>{n.exports=function(n){var e=[];return e.toString=function(){return this.map((function(e){var t="",r=void 0!==e[5];return e[4]&&(t+="@supports (".concat(e[4],") {")),e[2]&&(t+="@media ".concat(e[2]," {")),r&&(t+="@layer".concat(e[5].length>0?" ".concat(e[5]):""," {")),t+=n(e),r&&(t+="}"),e[2]&&(t+="}"),e[4]&&(t+="}"),t})).join("")},e.i=function(n,t,r,o,i){"string"==typeof n&&(n=[[null,n,void 0]]);var a={};if(r)for(var c=0;c<this.length;c++){var A=this[c][0];null!=A&&(a[A]=!0)}for(var s=0;s<n.length;s++){var d=[].concat(n[s]);r&&a[d[0]]||(void 0!==i&&(void 0===d[5]||(d[1]="@layer".concat(d[5].length>0?" ".concat(d[5]):""," {").concat(d[1],"}")),d[5]=i),t&&(d[2]?(d[1]="@media ".concat(d[2]," {").concat(d[1],"}"),d[2]=t):d[2]=t),o&&(d[4]?(d[1]="@supports (".concat(d[4],") {").concat(d[1],"}"),d[4]=o):d[4]="".concat(o)),e.push(d))}},e}},667:n=>{n.exports=function(n,e){return e||(e={}),n?(n=String(n.__esModule?n.default:n),/^['"].*['"]$/.test(n)&&(n=n.slice(1,-1)),e.hash&&(n+=e.hash),/["'() \t\n]|(%20)/.test(n)||e.needQuotes?'"'.concat(n.replace(/"/g,'\\"').replace(/\n/g,"\\n"),'"'):n):n}},537:n=>{n.exports=function(n){var e=n[1],t=n[3];if(!t)return e;if("function"==typeof btoa){var r=btoa(unescape(encodeURIComponent(JSON.stringify(t)))),o="sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(r),i="/*# ".concat(o," */");return[e].concat([i]).join("\n")}return[e].join("\n")}},379:n=>{var e=[];function t(n){for(var t=-1,r=0;r<e.length;r++)if(e[r].identifier===n){t=r;break}return t}function r(n,r){for(var i={},a=[],c=0;c<n.length;c++){var A=n[c],s=r.base?A[0]+r.base:A[0],d=i[s]||0,u="".concat(s," ").concat(d);i[s]=d+1;var l=t(u),p={css:A[1],media:A[2],sourceMap:A[3],supports:A[4],layer:A[5]};if(-1!==l)e[l].references++,e[l].updater(p);else{var m=o(p,r);r.byIndex=c,e.splice(c,0,{identifier:u,updater:m,references:1})}a.push(u)}return a}function o(n,e){var t=e.domAPI(e);return t.update(n),function(e){if(e){if(e.css===n.css&&e.media===n.media&&e.sourceMap===n.sourceMap&&e.supports===n.supports&&e.layer===n.layer)return;t.update(n=e)}else t.remove()}}n.exports=function(n,o){var i=r(n=n||[],o=o||{});return function(n){n=n||[];for(var a=0;a<i.length;a++){var c=t(i[a]);e[c].references--}for(var A=r(n,o),s=0;s<i.length;s++){var d=t(i[s]);0===e[d].references&&(e[d].updater(),e.splice(d,1))}i=A}}},569:n=>{var e={};n.exports=function(n,t){var r=function(n){if(void 0===e[n]){var t=document.querySelector(n);if(window.HTMLIFrameElement&&t instanceof window.HTMLIFrameElement)try{t=t.contentDocument.head}catch(n){t=null}e[n]=t}return e[n]}(n);if(!r)throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");r.appendChild(t)}},216:n=>{n.exports=function(n){var e=document.createElement("style");return n.setAttributes(e,n.attributes),n.insert(e,n.options),e}},565:(n,e,t)=>{n.exports=function(n){var e=t.nc;e&&n.setAttribute("nonce",e)}},795:n=>{n.exports=function(n){if("undefined"==typeof document)return{update:function(){},remove:function(){}};var e=n.insertStyleElement(n);return{update:function(t){!function(n,e,t){var r="";t.supports&&(r+="@supports (".concat(t.supports,") {")),t.media&&(r+="@media ".concat(t.media," {"));var o=void 0!==t.layer;o&&(r+="@layer".concat(t.layer.length>0?" ".concat(t.layer):""," {")),r+=t.css,o&&(r+="}"),t.media&&(r+="}"),t.supports&&(r+="}");var i=t.sourceMap;i&&"undefined"!=typeof btoa&&(r+="\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(i))))," */")),e.styleTagTransform(r,n,e.options)}(e,n,t)},remove:function(){!function(n){if(null===n.parentNode)return!1;n.parentNode.removeChild(n)}(e)}}}},589:n=>{n.exports=function(n,e){if(e.styleSheet)e.styleSheet.cssText=n;else{for(;e.firstChild;)e.removeChild(e.firstChild);e.appendChild(document.createTextNode(n))}}},605:(n,e,t)=>{n.exports=t.p+"66ea5ec3d91c7a187e14.svg"}},e={};function t(r){var o=e[r];if(void 0!==o)return o.exports;var i=e[r]={id:r,exports:{}};return n[r](i,i.exports,t),i.exports}t.m=n,t.n=n=>{var e=n&&n.__esModule?()=>n.default:()=>n;return t.d(e,{a:e}),e},t.d=(n,e)=>{for(var r in e)t.o(e,r)&&!t.o(n,r)&&Object.defineProperty(n,r,{enumerable:!0,get:e[r]})},t.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(n){if("object"==typeof window)return window}}(),t.o=(n,e)=>Object.prototype.hasOwnProperty.call(n,e),(()=>{var n;t.g.importScripts&&(n=t.g.location+"");var e=t.g.document;if(!n&&e&&(e.currentScript&&(n=e.currentScript.src),!n)){var r=e.getElementsByTagName("script");if(r.length)for(var o=r.length-1;o>-1&&!n;)n=r[o--].src}if(!n)throw new Error("Automatic publicPath is not supported in this browser");n=n.replace(/#.*$/,"").replace(/\?.*$/,"").replace(/\/[^\/]+$/,"/"),t.p=n})(),t.b=document.baseURI||self.location.href,t.nc=void 0,(()=>{function n(n){return{currentLocation:n.location.name,currentCountry:n.location.country,currentTemperature:Math.round(n.current.temp_c),maxTemperature:n.forecast.forecastday[0].day.maxtemp_c,minTemperature:n.forecast.forecastday[0].day.mintemp_c,currentFeelsTemperature:Math.round(n.current.feelslike_c),currentCondition:n.current.condition.text,currentConditionIcon:n.current.condition.icon,currentWindSpeed:n.current.wind_kph,currentPrecipitation:n.current.precip_mm,currentHumidity:n.current.humidity}}function e(n){const e=[],t=(new Date).getHours(),r=n.forecast.forecastday[0].hour,o=n.forecast.forecastday[1].hour;for(let n=0;n<r.length;n++)n>t&&e.push({time:r[n].time,temperature:Math.round(r[n].temp_c),condition:r[n].condition.text,conditionIcon:`https://${r[n].condition.icon.slice(2)}`});for(let n=0;n<o.length;n++)n<=t&&e.push({time:o[n].time,temperature:Math.round(o[n].temp_c),condition:o[n].condition.text,conditionIcon:`https://${o[n].condition.icon.slice(2)}`});return e}async function r(n){const e=`http://api.weatherapi.com/v1/forecast.json?key=73b76e4355924104b6c103812232611&q=${n}&days=3`;try{const n=await fetch(e,{mode:"cors"});if(!n.ok)throw new Error("Location not found");const t=await n.json();return console.log(t),t}catch(n){return null}}function o(n){const e=n.forecast.forecastday.slice(1),t=[];return e.forEach((n=>{t.push({time:n.date,temperature:n.day.avgtemp_c,maxTemp:n.day.maxtemp_c,minTemp:n.day.mintemp_c,conditionIcon:`https://${n.day.condition.icon.slice(2)}`,rainChance:n.day.daily_chance_of_rain,humidity:n.day.avghumidity})})),t}function i(n){const e=document.querySelector("#city"),t=document.querySelector("#country"),r=document.querySelector("#current-temperature span"),o=document.querySelector("#current-condition-icon"),i=document.querySelector("#current-condition"),a=document.querySelector("#feels-like-info"),c=document.querySelector("#wind-speed-info"),A=document.querySelector("#precipitations-info"),s=document.querySelector("#humidity-info");e.textContent=n.currentLocation,t.textContent=n.currentCountry,r.textContent=n.currentTemperature,o.src=n.currentConditionIcon,i.textContent=n.currentCondition,a.textContent=n.currentFeelsTemperature,c.textContent=n.currentWindSpeed,A.textContent=n.currentPrecipitation,s.textContent=n.currentHumidity}function a(n){const e=document.querySelector(".hourly-info"),t=document.createElement("div");t.classList.add("weather-per-hour");const r=document.createElement("div"),o=new Image,i=document.createElement("div");let a=new Date(n.time).getHours();1===a.toString().length&&(a=`0${a}`),r.textContent=`${a}:00`,o.src=n.conditionIcon,i.textContent=`${n.temperature}°C`,t.append(r,o,i),e.appendChild(t)}function c(n){const e=document.querySelector(".two-days-forecast"),t=document.createElement("div");t.classList.add("daily-forecast");const r=document.createElement("div");r.classList.add("weekday");const o=new Image,i=document.createElement("div");i.classList.add("daily-forecast-temperature");const a=document.createElement("div"),c=document.createElement("div"),A=document.createElement("div"),s=document.createElement("div");r.textContent=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"][new Date(n.time).getDay()-1],o.src=n.conditionIcon,a.textContent=`${Math.round(n.maxTemp)}°C`,c.textContent=`${Math.round(n.minTemp)}°C`,A.textContent=`${n.rainChance}%`,s.textContent=n.humidity,i.append(a,c),t.append(r,o,i,A,s),e.appendChild(t)}var A=t(379),s=t.n(A),d=t(795),u=t.n(d),l=t(569),p=t.n(l),m=t(565),f=t.n(m),h=t(216),C=t.n(h),y=t(589),g=t.n(y),B=t(426),I={};I.styleTagTransform=g(),I.setAttributes=f(),I.insert=p().bind(null,"head"),I.domAPI=u(),I.insertStyleElement=C(),s()(B.Z,I),B.Z&&B.Z.locals&&B.Z.locals;const b=document.querySelector("form"),v=document.querySelector("button"),x=document.querySelector("input");b.addEventListener("submit",(n=>{n.preventDefault()})),window.addEventListener("load",(async()=>{const t=await r("madrid");i(n(t)),e(t).forEach((n=>{a(n)})),o(t).forEach((n=>{c(n)}))})),v.addEventListener("click",(async()=>{const t=x.value;if(!t)return;const A=await r(t);A&&(!function(){const n=document.querySelector(".two-days-forecast");""===n.textContent||n.replaceChildren()}(),e(A),i(n(A)),document.querySelector(".hourly-info").replaceChildren(),e(A).forEach((n=>{a(n)})),o(A).forEach((n=>{c(n)})),b.reset())}))})()})();
+(() => {
+  "use strict";
+  var t =
+      /d{1,4}|D{3,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|W{1,2}|[LlopSZN]|"[^"]*"|'[^']*'/g,
+    e =
+      /\b(?:[A-Z]{1,3}[A-Z][TC])(?:[-+]\d{4})?|((?:Australian )?(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time)\b/g,
+    n = /[^-+\dA-Z]/g;
+  var r = {
+      default: "ddd mmm dd yyyy HH:MM:ss",
+      shortDate: "m/d/yy",
+      paddedShortDate: "mm/dd/yyyy",
+      mediumDate: "mmm d, yyyy",
+      longDate: "mmmm d, yyyy",
+      fullDate: "dddd, mmmm d, yyyy",
+      shortTime: "h:MM TT",
+      mediumTime: "h:MM:ss TT",
+      longTime: "h:MM:ss TT Z",
+      isoDate: "yyyy-mm-dd",
+      isoTime: "HH:MM:ss",
+      isoDateTime: "yyyy-mm-dd'T'HH:MM:sso",
+      isoUtcDateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'",
+      expiresHeaderFormat: "ddd, dd mmm yyyy HH:MM:ss Z",
+    },
+    o = {
+      dayNames: [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      monthNames: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ],
+      timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"],
+    },
+    c = function (t) {
+      var e =
+        arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 2;
+      return String(t).padStart(e, "0");
+    },
+    a = function (t) {
+      var e = t.y,
+        n = t.m,
+        r = t.d,
+        o = t._,
+        c = t.dayName,
+        a = t.short,
+        u = void 0 !== a && a,
+        i = new Date(),
+        d = new Date();
+      d.setDate(d[o + "Date"]() - 1);
+      var s = new Date();
+      return (
+        s.setDate(s[o + "Date"]() + 1),
+        i[o + "FullYear"]() === e &&
+        i[o + "Month"]() === n &&
+        i[o + "Date"]() === r
+          ? u
+            ? "Tdy"
+            : "Today"
+          : d[o + "FullYear"]() === e &&
+              d[o + "Month"]() === n &&
+              d[o + "Date"]() === r
+            ? u
+              ? "Ysd"
+              : "Yesterday"
+            : s[o + "FullYear"]() === e &&
+                s[o + "Month"]() === n &&
+                s[o + "Date"]() === r
+              ? u
+                ? "Tmw"
+                : "Tomorrow"
+              : c
+      );
+    },
+    u = function (t) {
+      var e = new Date(t.getFullYear(), t.getMonth(), t.getDate());
+      e.setDate(e.getDate() - ((e.getDay() + 6) % 7) + 3);
+      var n = new Date(e.getFullYear(), 0, 4);
+      n.setDate(n.getDate() - ((n.getDay() + 6) % 7) + 3);
+      var r = e.getTimezoneOffset() - n.getTimezoneOffset();
+      e.setHours(e.getHours() - r);
+      var o = (e - n) / 6048e5;
+      return 1 + Math.floor(o);
+    },
+    i = function (t) {
+      var e = t.getDay();
+      return 0 === e && (e = 7), e;
+    },
+    d = function (t) {
+      return (String(t).match(e) || [""])
+        .pop()
+        .replace(n, "")
+        .replace(/GMT\+0000/g, "UTC");
+    };
+  function s() {
+    const t = document.querySelector("#loading"),
+      e = document.querySelector("#content");
+    (t.style.display = "none"), (e.style.display = "block");
+  }
+  function m(t) {
+    const e = [],
+      n = new Date(t.current.last_updated).getHours(),
+      r = t.forecast.forecastday[0].hour,
+      o = t.forecast.forecastday[1].hour;
+    for (let t = 0; t < r.length; t++)
+      t > n &&
+        e.push({
+          time: r[t].time,
+          temperature: Math.round(r[t].temp_c),
+          condition: r[t].condition.text,
+          conditionIcon: `https://${r[t].condition.icon.slice(2)}`,
+        });
+    for (let t = 0; t < o.length; t++)
+      t <= n &&
+        e.push({
+          time: o[t].time,
+          temperature: Math.round(o[t].temp_c),
+          condition: o[t].condition.text,
+          conditionIcon: `https://${o[t].condition.icon.slice(2)}`,
+        });
+    return e;
+  }
+  function l(t) {
+    const e = document.createElement("div");
+    e.classList.add("weather-per-hour");
+    const n = document.createElement("div"),
+      r = new Image(),
+      o = document.createElement("div"),
+      c = document.createElement("span");
+    c.classList.add("number");
+    const a = document.createElement("span");
+    a.classList.add("unit"), o.append(c, a);
+    let u = new Date(t.time).getHours();
+    return (
+      1 === u.toString().length && (u = `0${u}`),
+      (n.textContent = `${u}:00`),
+      (r.src = t.conditionIcon),
+      (c.textContent = t.temperature),
+      (a.textContent = "°C"),
+      "fahrenheit" ===
+        document.querySelector(".temperature-units.active").value &&
+        ((c.textContent = Math.round((9 * Number(t.temperature)) / 5 + 32)),
+        (a.textContent = "°F ")),
+      e.append(n, r, o),
+      e
+    );
+  }
+  function y(e) {
+    (document.querySelector("input + span").textContent = ""),
+      e &&
+        (async function (t) {
+          const e = `http://api.weatherapi.com/v1/forecast.json?key=73b76e4355924104b6c103812232611&q=${t}&days=3`;
+          try {
+            !(function () {
+              const t = document.querySelector("#loading"),
+                e = document.querySelector("#content");
+              (t.style.display = "block"), (e.style.display = "none");
+            })();
+            const t = await fetch(e, { mode: "cors" });
+            if (!t.ok) throw new Error("Location not found");
+            const n = await t.json();
+            return s(), n;
+          } catch (t) {
+            return (
+              (document.querySelector("input + span").textContent = t),
+              document.querySelector("form").reset(),
+              s(),
+              null
+            );
+          }
+        })(e).then((e) => {
+          if (!e) return;
+          !(function () {
+            const t = document.querySelector(".hourly-data.active"),
+              e = document.querySelector(".dot.active"),
+              n = document.querySelector(".show-hourly"),
+              r = document.querySelector(".dots-container");
+            t.classList.toggle("active"),
+              e.classList.toggle("active"),
+              [...n.children][0].classList.toggle("active"),
+              [...r.children][0].classList.toggle("active");
+          })(),
+            (function () {
+              const t = document.querySelector(".two-days-forecast");
+              "" === t.textContent || t.replaceChildren();
+            })(),
+            m(e);
+          const n = (function (t) {
+            return {
+              date: t.current.last_updated,
+              currentLocation: t.location.name,
+              currentCountry: t.location.country,
+              currentTemperature: Math.round(t.current.temp_c),
+              maxTemperature: t.forecast.forecastday[0].day.maxtemp_c,
+              minTemperature: t.forecast.forecastday[0].day.mintemp_c,
+              currentFeelsTemperature: Math.round(t.current.feelslike_c),
+              currentCondition: t.current.condition.text,
+              currentConditionIcon: t.current.condition.icon,
+              currentWindSpeed: Math.round(t.current.wind_kph),
+              currentPrecipitation: t.current.precip_mm,
+              currentHumidity: t.current.humidity,
+            };
+          })(e);
+          var s;
+          (s = (function (e) {
+            return (function (e, n, s, m) {
+              if (
+                (1 !== arguments.length ||
+                  "string" != typeof e ||
+                  /\d/.test(e) ||
+                  ((n = e), (e = void 0)),
+                (e = e || 0 === e ? e : new Date()) instanceof Date ||
+                  (e = new Date(e)),
+                isNaN(e))
+              )
+                throw TypeError("Invalid date");
+              var l = (n = String(r[n] || n || r.default)).slice(0, 4);
+              ("UTC:" !== l && "GMT:" !== l) ||
+                ((n = n.slice(4)), (s = !0), "GMT:" === l && (m = !0));
+              var y = function () {
+                  return s ? "getUTC" : "get";
+                },
+                f = function () {
+                  return e[y() + "Date"]();
+                },
+                h = function () {
+                  return e[y() + "Day"]();
+                },
+                p = function () {
+                  return e[y() + "Month"]();
+                },
+                g = function () {
+                  return e[y() + "FullYear"]();
+                },
+                C = function () {
+                  return e[y() + "Hours"]();
+                },
+                v = function () {
+                  return e[y() + "Minutes"]();
+                },
+                S = function () {
+                  return e[y() + "Seconds"]();
+                },
+                M = function () {
+                  return e[y() + "Milliseconds"]();
+                },
+                T = function () {
+                  return s ? 0 : e.getTimezoneOffset();
+                },
+                x = function () {
+                  return u(e);
+                },
+                D = {
+                  d: function () {
+                    return f();
+                  },
+                  dd: function () {
+                    return c(f());
+                  },
+                  ddd: function () {
+                    return o.dayNames[h()];
+                  },
+                  DDD: function () {
+                    return a({
+                      y: g(),
+                      m: p(),
+                      d: f(),
+                      _: y(),
+                      dayName: o.dayNames[h()],
+                      short: !0,
+                    });
+                  },
+                  dddd: function () {
+                    return o.dayNames[h() + 7];
+                  },
+                  DDDD: function () {
+                    return a({
+                      y: g(),
+                      m: p(),
+                      d: f(),
+                      _: y(),
+                      dayName: o.dayNames[h() + 7],
+                    });
+                  },
+                  m: function () {
+                    return p() + 1;
+                  },
+                  mm: function () {
+                    return c(p() + 1);
+                  },
+                  mmm: function () {
+                    return o.monthNames[p()];
+                  },
+                  mmmm: function () {
+                    return o.monthNames[p() + 12];
+                  },
+                  yy: function () {
+                    return String(g()).slice(2);
+                  },
+                  yyyy: function () {
+                    return c(g(), 4);
+                  },
+                  h: function () {
+                    return C() % 12 || 12;
+                  },
+                  hh: function () {
+                    return c(C() % 12 || 12);
+                  },
+                  H: function () {
+                    return C();
+                  },
+                  HH: function () {
+                    return c(C());
+                  },
+                  M: function () {
+                    return v();
+                  },
+                  MM: function () {
+                    return c(v());
+                  },
+                  s: function () {
+                    return S();
+                  },
+                  ss: function () {
+                    return c(S());
+                  },
+                  l: function () {
+                    return c(M(), 3);
+                  },
+                  L: function () {
+                    return c(Math.floor(M() / 10));
+                  },
+                  t: function () {
+                    return C() < 12 ? o.timeNames[0] : o.timeNames[1];
+                  },
+                  tt: function () {
+                    return C() < 12 ? o.timeNames[2] : o.timeNames[3];
+                  },
+                  T: function () {
+                    return C() < 12 ? o.timeNames[4] : o.timeNames[5];
+                  },
+                  TT: function () {
+                    return C() < 12 ? o.timeNames[6] : o.timeNames[7];
+                  },
+                  Z: function () {
+                    return m ? "GMT" : s ? "UTC" : d(e);
+                  },
+                  o: function () {
+                    return (
+                      (T() > 0 ? "-" : "+") +
+                      c(
+                        100 * Math.floor(Math.abs(T()) / 60) +
+                          (Math.abs(T()) % 60),
+                        4,
+                      )
+                    );
+                  },
+                  p: function () {
+                    return (
+                      (T() > 0 ? "-" : "+") +
+                      c(Math.floor(Math.abs(T()) / 60), 2) +
+                      ":" +
+                      c(Math.floor(Math.abs(T()) % 60), 2)
+                    );
+                  },
+                  S: function () {
+                    return ["th", "st", "nd", "rd"][
+                      f() % 10 > 3
+                        ? 0
+                        : (((f() % 100) - (f() % 10) != 10) * f()) % 10
+                    ];
+                  },
+                  W: function () {
+                    return x();
+                  },
+                  WW: function () {
+                    return c(x());
+                  },
+                  N: function () {
+                    return i(e);
+                  },
+                };
+              return n.replace(t, function (t) {
+                return t in D ? D[t]() : t.slice(1, t.length - 1);
+              });
+            })(new Date(e), "dddd, mmmm dS, yyyy, HH:MM");
+          })(n.date)),
+            (document.querySelector("#date").textContent = s),
+            (function (t) {
+              const e = document.querySelector("#city"),
+                n = document.querySelector("#country"),
+                r = document.querySelector(".temperature-units.active"),
+                o = document.querySelector("#current-temperature .number"),
+                c = document.querySelector("#current-temperature .unit"),
+                a = document.querySelector("#current-condition-icon"),
+                u = document.querySelector("#current-condition"),
+                i = document.querySelector(".info .number"),
+                d = document.querySelector(".info .unit"),
+                s = document.querySelector("#wind-speed-info"),
+                m = document.querySelector("#precipitations-info"),
+                l = document.querySelector("#humidity-info");
+              (e.textContent = t.currentLocation),
+                (n.textContent = t.currentCountry),
+                (o.textContent = t.currentTemperature),
+                (c.textContent = "°C"),
+                (a.src = t.currentConditionIcon),
+                (u.textContent = t.currentCondition),
+                (i.textContent = t.currentFeelsTemperature),
+                (d.textContent = "°C"),
+                (s.textContent = `${t.currentWindSpeed} km/h`),
+                (m.textContent = `${t.currentPrecipitation} mm`),
+                (l.textContent = `${t.currentHumidity}%`),
+                "fahrenheit" === r.value &&
+                  ((o.textContent = Math.round(
+                    (9 * Number(t.currentTemperature)) / 5 + 32,
+                  )),
+                  (i.textContent = Math.round(
+                    (9 * Number(t.currentFeelsTemperature)) / 5 + 32,
+                  )),
+                  (c.textContent = "°F"),
+                  (d.textContent = "°F "));
+            })(n),
+            (function (t) {
+              const e = document.querySelector("[data-info-one]"),
+                n = document.querySelector("[data-info-two]"),
+                r = document.querySelector("[data-info-three]");
+              e.replaceChildren(), n.replaceChildren(), r.replaceChildren();
+              const o = t.slice(0, 8),
+                c = t.slice(8, 16),
+                a = t.slice(16, 24);
+              o.forEach((t) => {
+                e.appendChild(l(t));
+              }),
+                c.forEach((t) => {
+                  n.appendChild(l(t));
+                }),
+                a.forEach((t) => {
+                  r.appendChild(l(t));
+                });
+            })(m(e));
+          const y = (function (t) {
+            const e = t.forecast.forecastday.slice(1),
+              n = [];
+            return (
+              e.forEach((t) => {
+                n.push({
+                  time: t.date,
+                  temperature: t.day.avgtemp_c,
+                  maxTemp: t.day.maxtemp_c,
+                  minTemp: t.day.mintemp_c,
+                  conditionIcon: `https://${t.day.condition.icon.slice(2)}`,
+                  rainChance: t.day.daily_chance_of_rain,
+                  humidity: t.day.avghumidity,
+                });
+              }),
+              n
+            );
+          })(e);
+          y.forEach((t) => {
+            !(function (t) {
+              const e = document.querySelector(".two-days-forecast"),
+                n = document.createElement("div");
+              n.classList.add("daily-forecast");
+              const r = document.createElement("div");
+              r.classList.add("weekday");
+              const o = new Image(),
+                c = document.createElement("div");
+              c.classList.add("daily-forecast-temperature");
+              const a = document.createElement("div");
+              a.classList.add("forecast-max-temp");
+              const u = document.createElement("span");
+              u.classList.add("number");
+              const i = document.createElement("span");
+              i.classList.add("unit");
+              const d = document.createElement("div");
+              d.classList.add("forecast-min-temp");
+              const s = document.createElement("span");
+              s.classList.add("number");
+              const m = document.createElement("span");
+              m.classList.add("unit");
+              const l = document.createElement("div"),
+                y = document.createElement("div");
+              a.append(u, i),
+                d.append(s, m),
+                (r.textContent = [
+                  "Sunday",
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                ][new Date(t.time).getDay()]),
+                (o.src = t.conditionIcon),
+                (u.textContent = `${Math.round(t.maxTemp)}`),
+                (i.textContent = "°C"),
+                (s.textContent = `${Math.round(t.minTemp)}`),
+                (m.textContent = "°C"),
+                (l.textContent = `${t.rainChance}%`),
+                (y.textContent = `${t.humidity}%`),
+                "fahrenheit" ===
+                  document.querySelector(".temperature-units.active").value &&
+                  ((u.textContent = Math.round(
+                    (9 * Number(t.maxTemp)) / 5 + 32,
+                  )),
+                  (s.textContent = Math.round(
+                    (9 * Number(t.minTemp)) / 5 + 32,
+                  )),
+                  (i.textContent = "°F"),
+                  (m.textContent = "°F")),
+                c.append(a, d),
+                n.append(r, o, c, l, y),
+                e.appendChild(n);
+            })(t);
+          }),
+            document.querySelector("form").reset();
+        });
+  }
+  function f(t) {
+    const e = document.querySelector(".hourly-data.active"),
+      n = document.querySelector(".dot.active"),
+      r = document.querySelector(".show-hourly"),
+      o = document.querySelector(".dots-container"),
+      c = [...r.children].indexOf(e);
+    let a;
+    t.target.classList.contains("move-weather")
+      ? ("prev" === t.target.dataset.move && (a = c - 1),
+        "next" === t.target.dataset.move && (a = c + 1),
+        a >= [...r.children].length && (a = 0),
+        a < 0 && (a = [...r.children].length - 1))
+      : t.target.classList.contains("dot") &&
+        (a = [...o.children].indexOf(t.target)),
+      e.classList.toggle("active"),
+      n.classList.toggle("active"),
+      [...r.children][a].classList.toggle("active"),
+      [...o.children][a].classList.toggle("active");
+  }
+  const h = document.querySelector("form"),
+    p = document.querySelector("#search-location"),
+    g = document.querySelector("input"),
+    C = document.querySelectorAll(".temperature-units"),
+    v = document.querySelectorAll(".move-weather"),
+    S = document.querySelectorAll(".dot");
+  h.addEventListener("submit", (t) => {
+    t.preventDefault();
+  }),
+    document.addEventListener("DOMContentLoaded", () => {
+      y("madrid");
+    }),
+    p.addEventListener("click", () => {
+      y(g.value);
+    }),
+    v.forEach((t) => {
+      t.addEventListener("click", (t) => {
+        f(t);
+      });
+    }),
+    S.forEach((t) => {
+      t.addEventListener("click", (t) => {
+        f(t);
+      });
+    }),
+    C.forEach((t) => {
+      t.addEventListener("click", (t) => {
+        !(function (t) {
+          if (t.target.classList.contains("active")) return;
+          const e = document.querySelector(".temperature-units.active");
+          document.querySelectorAll(".number").forEach((e) => {
+            if ("fahrenheit" === t.target.value) {
+              const t = Math.round((9 * Number(e.textContent)) / 5 + 32);
+              (e.textContent = t), (e.nextElementSibling.textContent = "°F");
+            } else {
+              const t = Math.round((5 * (Number(e.textContent) - 32)) / 9);
+              (e.textContent = t), (e.nextElementSibling.textContent = "°C");
+            }
+          }),
+            e.classList.toggle("active"),
+            t.target.classList.toggle("active");
+        })(t);
+      });
+    });
+})();
 //# sourceMappingURL=main.js.map
