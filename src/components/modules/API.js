@@ -61,10 +61,10 @@ function displayDayData(data) {
 }
 
 async function getData(location) {
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=73b76e4355924104b6c103812232611&q=${location}&days=3`;
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=73b76e4355924104b6c103812232611&q=${location}&days=3`;
   try {
     showLoading();
-    const response = await fetch(url, { mode: "no-cors" });
+    const response = await fetch(url, { mode: "cors" });
     if (!response.ok) throw new Error("Location not found");
     const data = await response.json();
     hideLoading();
