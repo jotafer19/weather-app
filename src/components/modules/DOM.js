@@ -176,7 +176,9 @@ function showTwoDaysForecast(data) {
   const minTempUnit = document.createElement("span");
   minTempUnit.classList.add("unit");
   const chanceOfRain = document.createElement("div");
+  chanceOfRain.classList.add("forecast-rain");
   const humidity = document.createElement("div");
+  humidity.classList.add("forecast-humidity");
 
   maxTemp.append(maxTempNumber, maxTempUnit);
   minTemp.append(minTempNumber, minTempUnit);

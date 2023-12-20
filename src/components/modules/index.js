@@ -1,4 +1,5 @@
 import { searchWeather, changeHourlyDisplay, changeUnits } from "./handler";
+import "./style.css";
 
 const form = document.querySelector("form");
 const button = document.querySelector("#search-location");
