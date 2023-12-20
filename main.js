@@ -512,9 +512,11 @@
               s.classList.add("number");
               const m = document.createElement("span");
               m.classList.add("unit");
-              const l = document.createElement("div"),
-                y = document.createElement("div");
-              a.append(u, i),
+              const l = document.createElement("div");
+              l.classList.add("forecast-rain");
+              const y = document.createElement("div");
+              y.classList.add("forecast-humidity"),
+                a.append(u, i),
                 d.append(s, m),
                 (r.textContent = [
                   "Sunday",
